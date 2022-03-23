@@ -3,10 +3,21 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { defaultChains, InjectedConnector, Provider, chain } from 'wagmi';
+
+const connectors = ({ chainId }) => {
+  return [
+    new InjectedConnector({
+      chains: defaultChains,
+    }),
+  ];
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider autoConnect connectors={connectors}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
 );
