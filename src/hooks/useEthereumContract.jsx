@@ -17,7 +17,7 @@ const useEthereumContract = () => {
   const signer = provider.getSigner();
   contractTest = new ethers.Contract(CONTRACT_ADDRESS, contractABI.abi, signer);
 
-  return [contractTest];
+  return [contractTest, ethereum];
 };
 
 export default useEthereumContract;
