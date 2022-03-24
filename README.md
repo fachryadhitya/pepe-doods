@@ -16,6 +16,7 @@ submit a polished piece of work.
 Here are the requirements for the take-home project
 
 ## Netlify Site
+
 [netlify site](https://fachry-labs.netlify.app)
 
 ### Basic tasks

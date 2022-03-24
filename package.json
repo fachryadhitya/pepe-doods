@@ -21,8 +21,8 @@
     "build": "CI=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "format": "prettier --config .prettierrc --write './**/*.{html,js,jsx,json,ts,yml}'",
-    "format:check": "prettier --config .prettierrc --check './**/*.{html,js,jsx,json,ts,yml}'",
+    "format": "prettier --config .prettierrc --write './**/*.{html,js,jsx,json,ts,yml,md}'",
+    "format:check": "prettier --config .prettierrc --check './**/*.{html,js,jsx,json,ts,yml,md}'",
     "prepare": "node ./prepare.js",
     "lint-staged": "lint-staged"
   },
