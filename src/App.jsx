@@ -30,10 +30,10 @@ function App() {
       return;
     }
 
-    // if (totalMinted >= 2) {
-    //   alert('exceeded whitelist mint quota.');
-    //   return;
-    // }
+    if (totalMinted >= 2) {
+      alert('exceeded whitelist mint quota.');
+      return;
+    }
     toggleModal();
     progressNft();
   }
