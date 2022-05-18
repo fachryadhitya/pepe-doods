@@ -14,7 +14,7 @@ const StyledLayout = styled.div`
   min-height: 100vh;
   padding-bottom: 4rem;
   background: linear-gradient(hsla(0, 0%, 100%, 0.4), hsla(0, 0%, 100%, 0.4)),
-    url(https://pepedoods.com/background.d9ff9cd7.png);
+    url(https://res.cloudinary.com/djtmxztcf/image/upload/v1652880342/background.d9ff9cd7_1_sg4heb.png);
   background-size: cover;
   background-position: bottom;
 `;
@@ -46,7 +46,7 @@ const StyledImg = styled.img`
 `;
 
 const StyledAbout = styled.div`
-  background: lightgrey;
+  background: rgba(248, 249, 250, 0.8);
   color: black;
   font-weght: 700;
   padding: 1rem;
@@ -60,9 +60,10 @@ const StyledFaq = styled.div`
   margin: 0 auto;
   width: 70%;
   text-align: left;
-  background: lightgrey;
+  background: rgba(248, 249, 250, 0.8);
   padding: 1rem;
   border-radius: 10px;
+  border: 3px solid #333;
 `;
 
 const StyledMint = styled.div`
@@ -217,31 +218,33 @@ const PepeDoods = () => {
             const splittedToken = tokenByIndex.split('/');
             const lastIndex = splittedToken[splittedToken.length - 1];
 
-            const ipfsJson = tokenByIndex?.replace(
-              'ipfs://',
-              'https://ipfs.io/ipfs/',
-            );
+            // const ipfsJson = tokenByIndex?.replace(
+            //   'ipfs://',
+            //   'https://ipfs.io/ipfs/',
+            // );
 
-            const data = await fetch(ipfsJson);
-            const result = await data.text();
+            // console.log(ipfsJson);
 
-            let img;
+            // const data = await fetch(ipfsJson);
+            // const result = await data.text();
 
-            try {
-              const dataIpfs = JSON.parse(result);
-              if (dataIpfs?.image_url) {
-                img = dataIpfs?.image_url?.replace(
-                  'ipfs://',
-                  'https://ipfs.io/ipfs/',
-                );
-              }
-            } catch (error) {
-              img = ipfsJson;
-            }
+            // let img;
+
+            // try {
+            //   const dataIpfs = JSON.parse(result);
+            //   if (dataIpfs?.image_url) {
+            //     img = dataIpfs?.image_url?.replace(
+            //       'ipfs://',
+            //       'https://ipfs.io/ipfs/',
+            //     );
+            //   }
+            // } catch (error) {
+            //   img = ipfsJson;
+            // }
 
             return {
               id: lastIndex.split('.')[0],
-              img,
+              // img,
             };
           }),
         );
@@ -415,16 +418,16 @@ const PepeDoods = () => {
           toggleModal={() => setModalCollection(!modalCollection)}
         >
           <div className="d-flex flex-column p-4 justify-content-center align-items-center gap-3">
-            <span>pls wait because ipfs takes long time to load</span>
+            <span>Here is your PepeDoods NFT Link !!</span>
             {nftId?.map((item) => (
               <Fragment key={item?.id}>
-                <StyledImg src={item?.img} alt="nft-collection" />
+                {/* <StyledImg src={item?.img} alt="nft-collection" /> */}
                 <a
                   href={`https://testnets.opensea.io/assets/0xbe4f068501de3ae5fd860ec153984adfb494074d/${item.id}`}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  OpenSea link
+                  Open in OpenSea
                 </a>
               </Fragment>
             ))}
